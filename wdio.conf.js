@@ -1,6 +1,6 @@
 var notifier = require('node-notifier');
 var baseUrl = 'http://staging.aceinvoice.com'
-var timeout = process.env.DEBUG ? 99999999:10000;
+var timeout = process.env.DEBUG ? 99999999:30000;
 
 
 if(process.env.SERVER === "prod"){
