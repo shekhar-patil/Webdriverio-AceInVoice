@@ -1,4 +1,4 @@
-var LoginPage = require('./login.page.js');
+var LoginPage = require('../page/login.page.js');
 
 describe("Login Page" , function(){
 	beforeEach(function(){
