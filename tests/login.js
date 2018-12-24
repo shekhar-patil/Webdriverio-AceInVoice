@@ -1,8 +1,8 @@
 let LoginPage = require('../page/login.page.js');
 let Common = require('../common/common.js');
 
-describe("Login Page" , function(){
-	beforeEach(function(){
+describe("Login Page" , () => {
+	beforeEach(() =>{
 
 		browser.url('./');
 	})
@@ -17,13 +17,13 @@ describe("Login Page" , function(){
 		expect(LoginPage.rememberCheckBox.isSelected()).to.be.false;
 
 	})
-	it("Should have title" , function(){
+	it("Should have title" , () =>{
 
 		expect(browser.getTitle()).to.be.equal("Ace Invoice");
 		
 	})
 
-	it("should show the error msg when input is wrong" , function(){
+	it("should show the error msg when input is wrong" , () =>{
 
 		expect(LoginPage.flashMsg.isVisible()).to.false;
 		LoginPage.emailTextBox.setValue("abc@bigbinary.com");
