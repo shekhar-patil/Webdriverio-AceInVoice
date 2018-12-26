@@ -1,13 +1,26 @@
-var Page = require('../page/page')
+const expect = require('chai').expect
+const {Page} = require('../page/page');
+let LoginPage = require('../page/login.page.js');
+let menuBar = require('../page/menuBar.page.js');
 
-var Common = Object.create(Page, {
+class Common extends Page{
 
-	login: {function(instance , email , pass){
-		console.log(instance);
-		//instance.emailTextBox.setValue("abc@bigbinary.com");
-		//browser.pause(500);
-	}},
+	login(email , password){
+		LoginPage.emailTextBox.setValue(email);
+		LoginPage.passwordTextBox.setValue(password);
+		LoginPage.loginButton.click();
 
-})
+	}
 
-module.exports = Common;
+	menu(){
+
+		var menuOptions = [];
+		expect(LoginPage.LoggingSuccessText.isVisible()).to.be.true;
+		
+	}
+
+
+}
+
+
+module.exports = new Common();

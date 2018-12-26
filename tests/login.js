@@ -6,7 +6,7 @@ describe("Login Page" , () => {
 
 		browser.url('./');
 	})
-	it.only("Should Verify all the Elements" , () =>{
+	it("Should Verify all the Elements" , () =>{
 		expect(LoginPage.logo.isVisible()).to.be.true;
 		expect(LoginPage.emailTextBox.isExisting()).to.be.true;
 		expect(LoginPage.aceInVoiceText.getText()).to.be.equal("AceInvoice");
@@ -23,14 +23,12 @@ describe("Login Page" , () => {
 		
 	})
 
-	it("should show the error msg when input is wrong" , () =>{
+	it.only("should show the error msg when input is wrong" , () =>{
 
 		expect(LoginPage.flashMsg.isVisible()).to.false;
-		LoginPage.emailTextBox.setValue("abc@bigbinary.com");
-		//console.log(type_Of(Common.login));
-		//Common.login(LoginPage , "abc@bigbinary.com" , "abc123");
-		LoginPage.submit();
-		expect(LoginPage.flashMsg.isVisible()).to.true; 
+		Common.login("patilshekhar@gmail.com" , "shekhar123");
+		browser.pause(500);
+		Common.menu();
 	})
 
 })

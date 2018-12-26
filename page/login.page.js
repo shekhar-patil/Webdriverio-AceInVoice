@@ -13,7 +13,8 @@ class LoginPage extends Page {
     get rememberCheckBox() { return $("label.d-inline-block"); }
     get emailTextBox() { return $(".form-control[name=email]"); }
     get passwordReset() { return $("div*=Forgot Password?"); }
-    get passwordTextBox() { return $(".password"); }
+    get passwordTextBox() { return $(".form-control[name=password]"); }
+    get LoggingSuccessText() { return $("div=Logged in successfully."); }
 
     submit() {
         this.loginButton.click();

@@ -1,15 +1,4 @@
-/*
 
-function Page () {
-    this.title = 'My Page';
-}
-
-Page.prototype.open = function (path) {
-    browser.url(path)
-}
-
-module.exports = new Page()
-*/
 class Page {
     constructor() {
         this.title = 'My Page';
