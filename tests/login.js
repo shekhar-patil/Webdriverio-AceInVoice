@@ -1,5 +1,5 @@
-let LoginPage = require('../page/login.page.js');
-let Common = require('../common/common.js');
+const LoginPage = require('../page/login.page.js');
+const Common = require('../common/common.js');
 
 describe("Login Page" , () => {
 	beforeEach(() =>{
@@ -23,12 +23,19 @@ describe("Login Page" , () => {
 		
 	})
 
-	it.only("should show the error msg when input is wrong" , () =>{
+	it("should show the login Fail or Success after login." , () =>{
 
-		expect(LoginPage.flashMsg.isVisible()).to.false;
-		Common.login("patilshekhar@gmail.com" , "shekhar123");
-		browser.pause(500);
-		Common.menu();
+		expect(LoginPage.LoggingSuccessText.isVisible()).to.false;
+		
+		Common.login(); //We Can Change default parameter like Common.login("abc@xyz.com","pass")
+
+		browser.waitUntil(() => {
+	    	return ((LoginPage.LoggingSuccessText.isVisible()) === true || (LoginPage.LoggingFailedText.isVisible()) === true)
+	    }, 5000, 'Should display Flash_Toast msg');
+
+
+		expect(LoginPage.LoggingSuccessText.isVisible()).to.be.true;
+
 	})
 
 })
